@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" strict="true" name="XMLConfig" packages="com.softvider">
+    <Properties>
+        <Property name="pattern">%5p %d{yyyy-MM-dd HH:mm:ss} (%F:%L) - %m%n</Property>
+        <Property name="filename">$${sys:catalina.base}/logs/springboot-gradle/springboot-gradle.log</Property>
+        <Property name="filePattern">$${sys:catalina.base}/logs/springboot-gradle/springboot-gradle-%d{yyyy-MM-dd}.log</Property>
+    </Properties>
+    <Filter type="ThresholdFilter" level="info"/>
+    <Appenders>
+        <Appender type="Console" name="STDOUT">
+            <Layout type="PatternLayout" pattern="${pattern}"/>
+        </Appender>
+        <!-- Comment below for run SpringBootTest test -->
+        <RollingFile name="RollingFile" fileName="${filename}" filePattern="${filePattern}">
+            <Layout type="PatternLayout" pattern="${pattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+                <SizeBasedTriggeringPolicy size="100 MB" />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+        <!-- Comment below for run debug -->
+        <Logger name="com.softvider" level="info" additivity="false">
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
+    </Loggers>
+</Configuration>
