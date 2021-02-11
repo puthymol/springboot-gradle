@@ -52,6 +52,10 @@ dependencies {
     compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.4.3'
     compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.27.Final'
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.18'
+
+    //----- AspectJ -----
+    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
+    compile group: 'org.aspectj', name: 'aspectjrt', version: '1.9.6'
 }
 
 test {
