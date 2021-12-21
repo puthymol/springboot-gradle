@@ -11,3 +11,4 @@
 - Spring Security OAuth2
 - Database Postgres with certificate connection
 - AspectJ
+- Swagger

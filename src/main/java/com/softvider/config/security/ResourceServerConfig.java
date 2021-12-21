@@ -2,6 +2,7 @@ package com.softvider.config.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
@@ -30,8 +31,15 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     private static final List<String> ANONYMOUS_REQUESTS = List.of(
             "/anonymous/**",
-            "/security/anonymous/**"
-    );
+            "/security/anonymous/**");
+
+    private static final List<String> SWAGGER_UI = List.of(
+            "/swagger-resources/**",
+            "/swagger-ui.html",
+            "/configuration/**",
+            "/webjars/**",
+            "/api-docs/**",
+            "/v2/api-docs");
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
@@ -46,14 +54,14 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         if(Objects.equals(this.env.getProperty("softvider.oauth2.enable"), "true")){
             http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers(ANONYMOUS_REQUESTS.toArray(String[]::new))
-                    .permitAll()
-                .anyRequest()
-                    .authenticated()
-                    .and()
-                .exceptionHandling()
+                .antMatchers(ANONYMOUS_REQUESTS.toArray(String[]::new)).permitAll()
+                .antMatchers(SWAGGER_UI.toArray(String[]::new)).permitAll()
+                .antMatchers(HttpMethod.GET, "/*").permitAll()
+                .anyRequest().authenticated()
+                .and().exceptionHandling()
                     .accessDeniedHandler(this.accessDeniedHandler)
                     .authenticationEntryPoint(this.authenticationEntryPoint);
+
         }else{
             http.csrf().disable()
                     .authorizeRequests()
@@ -61,5 +69,4 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                     .permitAll();
         }
     }
-
 }

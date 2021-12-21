@@ -56,6 +56,11 @@ dependencies {
     //----- AspectJ -----
     compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
     compile group: 'org.aspectj', name: 'aspectjrt', version: '1.9.6'
+
+    //----- Swagger -----
+    implementation group: 'io.springfox', name: 'springfox-swagger2', version: "$springfoxSwagger2Version"
+    implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: "$springfoxSwaggerUIVersion"
+
 }
 
 test {
