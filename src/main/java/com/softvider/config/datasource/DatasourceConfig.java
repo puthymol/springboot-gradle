@@ -2,6 +2,7 @@ package com.softvider.config.datasource;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -21,6 +22,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableJpaRepositories(basePackages = {"com.softvider.provider.datasource.repository"})
+@ConditionalOnProperty(name = "wing.postgres.enable", havingValue = "true", matchIfMissing = true)
 @EnableTransactionManagement
 public class DatasourceConfig {
     private static final Logger log = LogManager.getLogger(DatasourceConfig.class);

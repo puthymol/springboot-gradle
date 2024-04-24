@@ -3,6 +3,7 @@ package com.softvider.provider.datasource.controller;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.softvider.model.BaseResponse;
 import com.softvider.provider.datasource.service.EmployeeService;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,7 @@ import javax.inject.Inject;
 
 @RestController
 @RequestMapping(value = "/datasource")
+@ConditionalOnProperty(name = "wing.postgres.enable", havingValue = "true", matchIfMissing = true)
 public class EmployeeController {
 
     @Inject

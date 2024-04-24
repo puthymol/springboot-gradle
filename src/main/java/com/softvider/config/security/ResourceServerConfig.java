@@ -9,7 +9,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
-
 import javax.inject.Inject;
 import java.util.List;
 import java.util.Objects;
@@ -30,6 +29,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Inject private AuthenticationEntryPoint authenticationEntryPoint;
 
     private static final List<String> ANONYMOUS_REQUESTS = List.of(
+            "/actuator/**",
             "/anonymous/**",
             "/security/anonymous/**");
 

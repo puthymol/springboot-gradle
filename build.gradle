@@ -61,6 +61,9 @@ dependencies {
     implementation group: 'io.springfox', name: 'springfox-swagger2', version: "$springfoxSwagger2Version"
     implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: "$springfoxSwaggerUIVersion"
 
+    //----- Spring Boot Actuator -----
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.4.2'
+
 }
 
 test {

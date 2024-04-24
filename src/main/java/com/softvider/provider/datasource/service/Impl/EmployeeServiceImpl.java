@@ -8,12 +8,14 @@ import com.softvider.provider.datasource.service.EmployeeService;
 import com.softvider.utils.AppUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.util.List;
 
 @Service
+@ConditionalOnProperty(name = "wing.postgres.enable", havingValue = "true", matchIfMissing = true)
 public class EmployeeServiceImpl implements EmployeeService {
     private static final Logger log = LogManager.getLogger(EmployeeServiceImpl.class);
 

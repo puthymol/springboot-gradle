@@ -12,3 +12,4 @@
 - Database Postgres with certificate connection
 - AspectJ
 - Swagger
+- Actuator
