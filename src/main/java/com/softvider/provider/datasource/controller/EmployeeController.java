@@ -15,21 +15,21 @@ import javax.inject.Inject;
 
 @RestController
 @RequestMapping(value = "/datasource")
-@ConditionalOnProperty(name = "wing.postgres.enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(name = "softvider.postgres.enable", havingValue = "true", matchIfMissing = true)
 public class EmployeeController {
 
     @Inject
     EmployeeService employeeService;
 
     @RequestMapping(value = "/employee/get", method = RequestMethod.GET)
-    public ResponseEntity<BaseResponse> Get() {
+    public ResponseEntity<BaseResponse> get() {
         BaseResponse result = employeeService.get();
         return new ResponseEntity(result, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/employee/insert", method = RequestMethod.POST)
-    public ResponseEntity<BaseResponse> Insert(@RequestBody JsonNode jsonNode) {
-        BaseResponse result = employeeService.Insert(jsonNode);
+    public ResponseEntity<BaseResponse> insert(@RequestBody JsonNode jsonNode) {
+        BaseResponse result = employeeService.insert(jsonNode);
         return new ResponseEntity(result, HttpStatus.OK);
     }
 }

@@ -22,7 +22,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableJpaRepositories(basePackages = {"com.softvider.provider.datasource.repository"})
-@ConditionalOnProperty(name = "wing.postgres.enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(name = "softvider.postgres.enable", havingValue = "true", matchIfMissing = true)
 @EnableTransactionManagement
 public class DatasourceConfig {
     private static final Logger log = LogManager.getLogger(DatasourceConfig.class);
@@ -47,16 +47,16 @@ public class DatasourceConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(this.env.getProperty("wing.postgres.driverClassName"));
-        dataSource.setUrl(this.env.getProperty("wing.postgres.url"));
-        dataSource.setUsername(this.env.getProperty("wing.postgres.username"));
-        dataSource.setPassword(this.env.getProperty("wing.postgres.password"));
+        dataSource.setDriverClassName(this.env.getProperty("softvider.postgres.driverClassName"));
+        dataSource.setUrl(this.env.getProperty("softvider.postgres.url"));
+        dataSource.setUsername(this.env.getProperty("softvider.postgres.username"));
+        dataSource.setPassword(this.env.getProperty("softvider.postgres.password"));
         try {
-            String caCert = new ClassPathResource(this.env.getProperty("wing.postgres.ca_cert")).getFile().getAbsolutePath();
-            String clientCert = new ClassPathResource(this.env.getProperty("wing.postgres.client_cert")).getFile().getAbsolutePath();
-            String clientKey = new ClassPathResource(this.env.getProperty("wing.postgres.client_key")).getFile().getAbsolutePath();
+            String caCert = new ClassPathResource(this.env.getProperty("softvider.postgres.ca_cert")).getFile().getAbsolutePath();
+            String clientCert = new ClassPathResource(this.env.getProperty("softvider.postgres.client_cert")).getFile().getAbsolutePath();
+            String clientKey = new ClassPathResource(this.env.getProperty("softvider.postgres.client_key")).getFile().getAbsolutePath();
             Properties props = new Properties();
-            props.setProperty("sslmode", this.env.getProperty("wing.postgres.sslmode"));
+            props.setProperty("sslmode", this.env.getProperty("softvider.postgres.sslmode"));
             props.setProperty("sslrootcert", caCert);
             props.setProperty("sslcert", clientCert);
             props.setProperty("sslkey", clientKey);

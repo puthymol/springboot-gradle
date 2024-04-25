@@ -1,4 +1,4 @@
-package com.softvider.provider.datasource.service.Impl;
+package com.softvider.provider.datasource.service.impl;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.softvider.model.BaseResponse;
@@ -15,7 +15,7 @@ import javax.inject.Inject;
 import java.util.List;
 
 @Service
-@ConditionalOnProperty(name = "wing.postgres.enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(name = "softvider.postgres.enable", havingValue = "true", matchIfMissing = true)
 public class EmployeeServiceImpl implements EmployeeService {
     private static final Logger log = LogManager.getLogger(EmployeeServiceImpl.class);
 
@@ -29,7 +29,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public BaseResponse Insert(JsonNode data) {
+    public BaseResponse insert(JsonNode data) {
         EmployeeEntity entity = AppUtil.convert(data, EmployeeEntity.class);
         try {
             employeeRepository.save(entity);

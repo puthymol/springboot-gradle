@@ -28,7 +28,7 @@ public class SwaggerConfig {
                 "Spring Boot REST API",
                 "1.0",
                 "Terms of service",
-                new Contact("Softvider Team", "https://softvider.com", "softvider@gmail.com").toString(),
+                new Contact("Softvider Developer Team", "https://softvider.com", "developer@softvider.com").toString(),
                 "",
                 "");
     }
