@@ -1,1 +1,802 @@
-{"info":{"_postman_id":"7f661dc6-a89a-45b1-afc5-03cbb8ba5024","name":"Spring","schema":"https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"},"item":[{"name":"cache","item":[{"name":"Cache Get","id":"cac1119b-722b-4b49-941a-eaa0b0df4e7c","request":{"auth":{"type":"bearer","bearer":{"token":"{{token}}"}},"method":"GET","header":[],"url":"{{url}}\/cache\/get"},"response":[]},{"name":"Cache With Param","id":"6a19a17e-8c6d-49f7-9023-1e2397a80897","protocolProfileBehavior":{"disabledSystemHeaders":{}},"request":{"auth":{"type":"bearer","bearer":{"token":"{{token}}"}},"method":"GET","header":[{"key":"Content-Type","type":"text","value":"application\/json"}],"url":"{{url}}\/cache\/param\/good"},"response":[]},{"name":"Cache Post","id":"065706b3-b862-4c1a-bf26-8900adbea385","protocolProfileBehavior":{"disabledSystemHeaders":{}},"request":{"auth":{"type":"bearer","bearer":{"token":"{{token}}"}},"method":"POST","header":[],"body":{"mode":"raw","raw":"{\r\n    \"name\": \"Think Fast\",\r\n    \"isbn\": \"1234\"\r\n}","options":{"raw":{"language":"json"}}},"url":"{{url}}\/cache\/post"},"response":[]},{"name":"Cache Clear","id":"d6d63b6a-cffd-4e41-81bf-8f96d48c6555","protocolProfileBehavior":{"disabledSystemHeaders":{}},"request":{"auth":{"type":"bearer","bearer":{"token":"{{token}}"}},"method":"GET","header":[],"url":"{{url}}\/cache\/clear"},"response":[]}],"id":"44dd3027-75c7-4aed-86c7-709a700093da"},{"name":"datasource","item":[{"name":"Get Employee","id":"dae4f84b-fc05-49fe-9333-6ed219765bfc","request":{"auth":{"type":"bearer","bearer":{"token":"{{token}}"}},"method":"GET","header":[],"url":"{{url}}\/datasource\/employee\/get"},"response":[]},{"name":"Insert Employee","id":"4e63f264-91df-45ac-ba13-2888af3969cb","request":{"auth":{"type":"bearer","bearer":{"token":"{{token}}"}},"method":"POST","header":[],"body":{"mode":"raw","raw":"{\r\n    \"name\": \"John\"\r\n}","options":{"raw":{"language":"json"}}},"url":"{{url}}\/datasource\/employee\/insert"},"response":[]}],"id":"0b146c80-3d5d-4ef2-a108-9d959656c177"},{"name":"home","item":[{"name":"Get","id":"8e9b8c00-2e22-4e00-8c82-585949218cfb","request":{"method":"GET","header":[],"url":"{{url}}\/home\/newfile"},"response":[]}],"id":"71e755dc-1e00-4a6e-948f-a29e0a2b6400"},{"name":"redis","item":[{"name":"Get","id":"57b9fc7e-5a92-4f2a-93a1-5f037085d7ea","request":{"method":"GET","header":[],"url":"{{url}}\/redis\/get\/key01"},"response":[]},{"name":"Set","id":"ab2e88bd-1f18-4b27-8276-7bf557ea1ee1","request":{"auth":{"type":"bearer","bearer":{"token":"{{token}}"}},"method":"GET","header":[],"url":"{{url}}\/redis\/set\/key01\/value01"},"response":[]}],"id":"4e13c49a-3e69-4cc3-8a01-e2b4b10aad06"},{"name":"security","item":[{"name":"Auth token","event":[{"listen":"test","script":{"type":"text\/javascript","exec":["var jsonData = JSON.parse(responseBody);\r","postman.setEnvironmentVariable(\"token\", jsonData.access_token);\r","postman.setEnvironmentVariable(\"refresh_token\", jsonData.refresh_token);"]}}],"id":"5f16af26-2b08-4ce5-99fd-18e82a39d88d","request":{"auth":{"type":"basic","basic":{"username":"softvider","password":"f4EcHeKgPkRnTrWtYw3y5A8DaFcJfMhP","showPassword":false}},"method":"POST","header":[{"key":"Content-Type","value":"application\/x-www-form-urlencoded","type":"text"}],"body":{"mode":"urlencoded","urlencoded":[{"key":"username","value":"puthy","type":"text"},{"key":"password","value":"Softvider@123","type":"text"},{"key":"grant_type","value":"password","type":"text"}]},"url":"{{url}}\/oauth\/token"},"response":[]},{"name":"Refresh Token","id":"929b0428-49dd-4fd0-b143-e459ef3c8030","request":{"auth":{"type":"basic","basic":{"username":"softvider","password":"f4EcHeKgPkRnTrWtYw3y5A8DaFcJfMhP","showPassword":false}},"method":"POST","header":[{"key":"Content-Type","type":"text","value":"application\/x-www-form-urlencoded"}],"body":{"mode":"urlencoded","urlencoded":[{"key":"refresh_token","value":"{{refresh_token}}","type":"text"},{"key":"grant_type","value":"refresh_token","type":"text"}]},"url":"{{url}}\/oauth\/token"},"response":[]},{"name":"Get User","event":[{"listen":"test","script":{"id":"efe3032a-bea5-4bb8-9837-912a89c444b2","exec":[""],"type":"text\/javascript"}}],"id":"05112dae-a37c-4613-9f90-7d22066c2426","protocolProfileBehavior":{"disabledSystemHeaders":{}},"request":{"auth":{"type":"bearer","bearer":{"token":"{{token}}"}},"method":"POST","header":[{"key":"Content-Type","value":"application\/json","type":"text"}],"body":{"mode":"raw","raw":"{\r\n    \"first_name\": \"Puthy\",\r\n    \"last_name\": \"Mol\"\r\n}","options":{"raw":{"language":"json"}}},"url":"{{url}}\/security\/user"},"response":[]},{"name":"Get User Anonymous","event":[{"listen":"test","script":{"id":"8858f1ff-6b10-4d22-91be-a8a89f84e4a8","exec":[""],"type":"text\/javascript"}}],"id":"e1b7c60a-0c7c-4d41-99c1-12fa44d74cd2","protocolProfileBehavior":{"disableBodyPruning":true,"disabledSystemHeaders":{}},"request":{"method":"GET","header":[{"key":"Content-Type","type":"text","value":"application\/json"}],"body":{"mode":"raw","raw":"{\r\n    \"first_name\": \"Puthy\"\r\n}","options":{"raw":{"language":"json"}}},"url":"{{url}}\/security\/anonymous\/user"},"response":[]}],"id":"90eddb23-e061-4474-b6b1-d089d3693745"},{"name":"validation","item":[{"name":"Get Student","event":[{"listen":"test","script":{"id":"c337174c-be55-4ee1-ab01-a02f0a80132f","exec":[""],"type":"text\/javascript"}}],"id":"aa3fd78e-6cb9-44d4-9b79-9a54fd542355","protocolProfileBehavior":{"disabledSystemHeaders":{}},"request":{"auth":{"type":"bearer","bearer":{"token":"{{token}}"}},"method":"POST","header":[{"key":"Content-Type","type":"text","value":"application\/json"}],"body":{"mode":"raw","raw":"{\r\n    \"first_name\":\"Puthy\",\r\n    \"last_name\":null\r\n}"},"url":"{{url}}\/validation\/student\/get"},"response":[]}],"id":"a99c0fa7-d418-4d0f-a29a-15318da95330"}],"event":[{"listen":"prerequest","script":{"id":"2b604f55-64ae-493e-a3a7-3c02f5c2f15d","type":"text\/javascript","exec":[""]}},{"listen":"test","script":{"id":"c16daa75-690e-4a28-8429-5ff39c87dfe7","type":"text\/javascript","exec":[""]}}]}
+{
+  "info": {
+    "_postman_id": "7f661dc6-a89a-45b1-afc5-03cbb8ba5024",
+    "name": "Java Spring",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "4802528"
+  },
+  "item": [
+    {
+      "name": "cache",
+      "item": [
+        {
+          "name": "Cache Get",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/cache/get",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "cache",
+                "get"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cache With Param",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/cache/param/good",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "cache",
+                "param",
+                "good"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cache Post",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Think Fast\",\r\n    \"isbn\": \"1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/cache/post",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "cache",
+                "post"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cache Clear",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/cache/clear",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "cache",
+                "clear"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "datasource",
+      "item": [
+        {
+          "name": "Get Employee",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/datasource/employee/get",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "datasource",
+                "employee",
+                "get"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Insert Employee",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Bill Gate\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/datasource/employee/insert",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "datasource",
+                "employee",
+                "insert"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "home",
+      "item": [
+        {
+          "name": "Get",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/home/newfile",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "home",
+                "newfile"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "redis",
+      "item": [
+        {
+          "name": "Get",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/redis/get/key01",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "redis",
+                "get",
+                "key01"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Set",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/redis/set/key01/value01",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "redis",
+                "set",
+                "key01",
+                "value01"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "security",
+      "item": [
+        {
+          "name": "Auth token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody);\r",
+                  "postman.setEnvironmentVariable(\"token\", jsonData.access_token);\r",
+                  "postman.setEnvironmentVariable(\"refresh_token\", jsonData.refresh_token);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "softvider",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "f4EcHeKgPkRnTrWtYw3y5A8DaFcJfMhP",
+                  "type": "string"
+                },
+                {
+                  "key": "showPassword",
+                  "value": false,
+                  "type": "boolean"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "puthy",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "Softvider@123",
+                  "type": "text"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}/oauth/token",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "oauth",
+                "token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "softvider",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "f4EcHeKgPkRnTrWtYw3y5A8DaFcJfMhP",
+                  "type": "string"
+                },
+                {
+                  "key": "showPassword",
+                  "value": false,
+                  "type": "boolean"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "refresh_token",
+                  "value": "{{refresh_token}}",
+                  "type": "text"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}/oauth/token",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "oauth",
+                "token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"first_name\": \"Puthy\",\r\n    \"last_name\": \"Mol\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/security/user",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "security",
+                "user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Anonymous",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true,
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"first_name\": \"Puthy\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/security/anonymous/user",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "security",
+                "anonymous",
+                "user"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "validation",
+      "item": [
+        {
+          "name": "Get Student",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"first_name\":\"Puthy\",\r\n    \"last_name\":null\r\n}"
+            },
+            "url": {
+              "raw": "{{url}}/validation/student/get",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "validation",
+                "student",
+                "get"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "aspectj",
+      "item": [
+        {
+          "name": "AspectJ",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/aspectj/",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "aspectj",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "thread",
+      "item": [
+        {
+          "name": "Thread",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/thread",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "thread"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "thread pool",
+      "item": [
+        {
+          "name": "Thread Pool",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/threadpool",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "threadpool"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "actuator",
+      "item": [
+        {
+          "name": "Actuator Health",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/actuator/health",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "actuator",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "swagger",
+      "item": [
+        {
+          "name": "Swagger UI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9090/swagger-ui.html",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9090",
+              "path": [
+                "swagger-ui.html"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
