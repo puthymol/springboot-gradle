@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.inject.Inject;
 import java.util.Map;
 
@@ -18,8 +17,8 @@ public class ThreadPoolController {
     private ThreadPoolService threadPoolService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ResponseEntity<Map<String, Object>> Home() {
-        Map<String, Object> result = threadPoolService.Home("Puthy");
+    public ResponseEntity<Map<String, Object>> home() {
+        Map<String, Object> result = threadPoolService.home("Puthy");
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

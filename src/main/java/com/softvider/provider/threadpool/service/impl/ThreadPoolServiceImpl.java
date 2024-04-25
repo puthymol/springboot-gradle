@@ -19,7 +19,7 @@ public class ThreadPoolServiceImpl implements ThreadPoolService {
     private ApplicationEventPublisher eventPublisher;
 
     @Override
-    public Map<String, Object> Home(String request) {
+    public Map<String, Object> home(String request) {
         Map<String, Object> jsonString = new HashMap<>();
         jsonString.put("name", "Puthy");
         eventPublisher.publishEvent(new AppEvent("Puthy"));

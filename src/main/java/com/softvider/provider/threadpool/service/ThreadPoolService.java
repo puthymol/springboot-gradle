@@ -4,5 +4,5 @@ import java.util.Map;
 
 public interface ThreadPoolService {
 
-    Map<String, Object> Home(String request);
+    Map<String, Object> home(String request);
 }
