@@ -14,3 +14,4 @@
 - Swagger
 - Actuator
 - Scheduler
+- Kafka

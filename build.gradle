@@ -64,6 +64,9 @@ dependencies {
     //----- Spring Boot Actuator -----
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.4.2'
 
+    //----- Kafka -----
+    implementation group: 'org.apache.kafka', name: 'kafka-clients', version: '3.7.0'
+
 }
 
 test {
