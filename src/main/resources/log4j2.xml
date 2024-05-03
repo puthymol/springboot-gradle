@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="info" strict="true" name="XMLConfig" packages="com.softvider">
     <Properties>
-        <Property name="pattern">%5p %d{yyyy-MM-dd HH:mm:ss} (%F:%L) - %m%n</Property>
+        <Property name="pattern">%5p %d{yyyy-MM-dd HH:mm:ss:SSS} [%t] (%F:%L) - %m%n</Property>
         <Property name="filename">logs/springboot-gradle/springboot-gradle.log</Property>
         <Property name="filePattern">logs/springboot-gradle/springboot-gradle-%d{yyyy-MM-dd}.log</Property>
     </Properties>

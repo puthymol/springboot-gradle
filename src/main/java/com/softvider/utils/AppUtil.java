@@ -1,7 +1,6 @@
 package com.softvider.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.softvider.provider.home.controller.HomeController;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,10 +11,9 @@ import java.io.IOException;
 import java.util.Set;
 
 public class AppUtil {
-
     static Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
     public static final ObjectMapper objectMapper = new ObjectMapper();
-    private static final Logger log = LogManager.getLogger(HomeController.class);
+    private static final Logger log = LogManager.getLogger(AppUtil.class);
 
     public static  <T> T convertValidate(Object object, Class<T> clazz) throws AppUtilValidationException {
         T request = objectMapper.convertValue(object, clazz);

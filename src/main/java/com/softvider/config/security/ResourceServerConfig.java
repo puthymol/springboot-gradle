@@ -51,7 +51,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        if(Objects.equals(this.env.getProperty("softvider.oauth2.enable"), "true")){
+        if(Objects.equals(this.env.getProperty("softvider.oauth2.enabled"), "true")){
             http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers(ANONYMOUS_REQUESTS.toArray(String[]::new)).permitAll()

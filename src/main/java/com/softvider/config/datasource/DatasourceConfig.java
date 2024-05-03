@@ -22,7 +22,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableJpaRepositories(basePackages = {"com.softvider.provider.datasource.repository"})
-@ConditionalOnProperty(name = "softvider.postgres.enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(name = "softvider.postgres.enabled", havingValue = "true", matchIfMissing = true)
 @EnableTransactionManagement
 public class DatasourceConfig {
     private static final Logger log = LogManager.getLogger(DatasourceConfig.class);

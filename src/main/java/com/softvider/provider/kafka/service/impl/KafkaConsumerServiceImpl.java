@@ -21,6 +21,9 @@ public class KafkaConsumerServiceImpl implements InitializingBean, KafkaConsumer
     private static final Logger log = LogManager.getLogger(KafkaConsumerServiceImpl.class);
     private Consumer<String, String> consumer;
 
+    @Value("${softvider.kafka.enabled}")
+    private boolean kafkaEnabled;
+
     @Value("${softvider.kafka.bootstrap.servers}")
     private String kafkaServers;
 
@@ -32,13 +35,15 @@ public class KafkaConsumerServiceImpl implements InitializingBean, KafkaConsumer
 
     @Override
     public void afterPropertiesSet() {
-        Properties props = new Properties();
-        props.put("bootstrap.servers", this.kafkaServers);
-        props.put("group.id", this.kafkaGroupId);
-        props.put("key.deserializer", StringDeserializer.class.getName());
-        props.put("value.deserializer", StringDeserializer.class.getName());
-        this.consumer = new KafkaConsumer<>(props);
-        this.run();
+        if(this.kafkaEnabled) {
+            Properties props = new Properties();
+            props.put("bootstrap.servers", this.kafkaServers);
+            props.put("group.id", this.kafkaGroupId);
+            props.put("key.deserializer", StringDeserializer.class.getName());
+            props.put("value.deserializer", StringDeserializer.class.getName());
+            this.consumer = new KafkaConsumer<>(props);
+            this.run();
+        }
     }
 
     @Override

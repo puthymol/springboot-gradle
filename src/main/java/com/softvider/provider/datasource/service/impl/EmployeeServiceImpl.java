@@ -15,7 +15,7 @@ import javax.inject.Inject;
 import java.util.List;
 
 @Service
-@ConditionalOnProperty(name = "softvider.postgres.enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(name = "softvider.postgres.enabled", havingValue = "true", matchIfMissing = true)
 public class EmployeeServiceImpl implements EmployeeService {
     private static final Logger log = LogManager.getLogger(EmployeeServiceImpl.class);
 

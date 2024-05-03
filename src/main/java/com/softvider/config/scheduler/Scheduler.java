@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Component
-@ConditionalOnProperty(name = "softvider.scheduler.enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(name = "softvider.scheduler.enabled", havingValue = "true", matchIfMissing = true)
 public class Scheduler {
 
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");

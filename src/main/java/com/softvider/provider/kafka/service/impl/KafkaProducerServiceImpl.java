@@ -21,6 +21,9 @@ public class KafkaProducerServiceImpl implements InitializingBean, KafkaProducer
     private final Random rand = new Random();
     private Producer<String, String> producer;
 
+    @Value("${softvider.kafka.enabled}")
+    private boolean kafkaEnabled;
+
     @Value("${softvider.kafka.bootstrap.servers}")
     private String bootstrapServers;
 
@@ -29,11 +32,13 @@ public class KafkaProducerServiceImpl implements InitializingBean, KafkaProducer
 
     @Override
     public void afterPropertiesSet() {
-        Properties props = new Properties();
-        props.put("bootstrap.servers", this.bootstrapServers);
-        props.put("key.serializer", StringSerializer.class.getName());
-        props.put("value.serializer", StringSerializer.class.getName());
-        this.producer = new KafkaProducer<>(props);
+        if(this.kafkaEnabled) {
+            Properties props = new Properties();
+            props.put("bootstrap.servers", this.bootstrapServers);
+            props.put("key.serializer", StringSerializer.class.getName());
+            props.put("value.serializer", StringSerializer.class.getName());
+            this.producer = new KafkaProducer<>(props);
+        }
     }
 
     @Override

@@ -5,7 +5,7 @@
 - Cache
 - Validation
 - Redis
-- Thread service
+- Application Event
 - ThreadPool
 - Encrypt decrypt data using AES
 - Spring Security OAuth2

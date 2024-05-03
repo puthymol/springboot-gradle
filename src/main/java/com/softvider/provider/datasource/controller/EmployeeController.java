@@ -15,7 +15,7 @@ import javax.inject.Inject;
 
 @RestController
 @RequestMapping(value = "/datasource")
-@ConditionalOnProperty(name = "softvider.postgres.enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(name = "softvider.postgres.enabled", havingValue = "true", matchIfMissing = true)
 public class EmployeeController {
 
     @Inject

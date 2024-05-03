@@ -1,4 +1,4 @@
-package com.softvider.provider.threadpool.listener;
+package com.softvider.provider.applicationevent.listener;
 
 import org.springframework.context.ApplicationEvent;
 
