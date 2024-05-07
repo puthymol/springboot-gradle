@@ -845,7 +845,7 @@
 			]
 		},
 		{
-			"name": "vote stress test",
+			"name": "jmeter",
 			"item": [
 				{
 					"name": "Get Session",

@@ -1,4 +1,4 @@
-package com.softvider.provider.vote;
+package com.softvider.provider.jmeter;
 
 import com.softvider.utils.AppUtil;
 import org.slf4j.Logger;
@@ -14,9 +14,9 @@ import java.util.Map;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(value = "/vote")
-public class VoteController {
-    private static final Logger log = LoggerFactory.getLogger(VoteController.class);
+@RequestMapping(value = "/jmeter")
+public class JMeterController {
+    private static final Logger log = LoggerFactory.getLogger(JMeterController.class);
 
     @RequestMapping(value = "/session", method = RequestMethod.POST)
     public ResponseEntity<Map<String, Object>> getSession(@RequestBody Map<String, Object> request) throws InterruptedException {

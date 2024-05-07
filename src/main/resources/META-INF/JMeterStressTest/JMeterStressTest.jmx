@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.2">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="VoteStressTest" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="JMeterStressTest" enabled="true">
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.tearDown_on_shutdown">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
@@ -137,7 +137,7 @@
         </ResultCollector>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Vote Flow" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="JMeter Flow" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <stringProp name="LoopController.loops">2</stringProp>
@@ -169,7 +169,7 @@
           <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.path">/vote/session</stringProp>
+          <stringProp name="HTTPSampler.path">jmeter/session</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -197,7 +197,7 @@
           </HeaderManager>
           <hashTree/>
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
-            <stringProp name="filename">D:/WingBank/Proof-of-Concept/OnGit/springboot-gradle/src/main/resources/META-INF/JMeterStressTest/VoteData.csv</stringProp>
+            <stringProp name="filename">D:/WingBank/Proof-of-Concept/OnGit/springboot-gradle/src/main/resources/META-INF/JMeterStressTest/JMeterData.csv</stringProp>
             <stringProp name="fileEncoding">UTF-8</stringProp>
             <stringProp name="variableNames">username</stringProp>
             <boolProp name="ignoreFirstLine">true</boolProp>
@@ -215,7 +215,7 @@
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Submit Vote" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Submit JMeter" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -224,7 +224,7 @@
                 <stringProp name="Argument.value">{&#xd;
 	&quot;username&quot;: &quot;${username}&quot;,&#xd;
 	&quot;session&quot;: &quot;${session}&quot;,&#xd;
-	&quot;vote&quot;: &quot;${vote}&quot;&#xd;
+	&quot;score&quot;: &quot;${score}&quot;&#xd;
 }&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -234,7 +234,7 @@
           <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.path">vote/submit</stringProp>
+          <stringProp name="HTTPSampler.path">jmeter/submit</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -262,9 +262,9 @@
           </HeaderManager>
           <hashTree/>
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
-            <stringProp name="filename">D:/WingBank/Proof-of-Concept/OnGit/springboot-gradle/src/main/resources/META-INF/JMeterStressTest/VoteData.csv</stringProp>
+            <stringProp name="filename">D:/WingBank/Proof-of-Concept/OnGit/springboot-gradle/src/main/resources/META-INF/JMeterStressTest/JMeterData.csv</stringProp>
             <stringProp name="fileEncoding">UTF-8</stringProp>
-            <stringProp name="variableNames">username,vote</stringProp>
+            <stringProp name="variableNames">username,score</stringProp>
             <boolProp name="ignoreFirstLine">true</boolProp>
             <stringProp name="delimiter">,</stringProp>
             <boolProp name="quotedData">false</boolProp>
