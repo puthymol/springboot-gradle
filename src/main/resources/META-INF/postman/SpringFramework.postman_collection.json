@@ -59,7 +59,7 @@
 								"key": "Content-Type",
 								"type": "text",
 								"value": "application/json",
-								"uuid": "56fb288a-8c0f-4e3a-86b5-be8d64af196c"
+								"uuid": "f120fbd7-a94b-4b0d-a0b9-03a857f9666d"
 							}
 						],
 						"url": {
@@ -363,7 +363,7 @@
 								"key": "Content-Type",
 								"value": "application/x-www-form-urlencoded",
 								"type": "text",
-								"uuid": "1ffe537e-2806-44a7-ab37-9753da3fd5ec"
+								"uuid": "82b2bba8-9987-4138-95e4-4e6fb18de5c5"
 							}
 						],
 						"body": {
@@ -428,7 +428,7 @@
 								"key": "Content-Type",
 								"type": "text",
 								"value": "application/x-www-form-urlencoded",
-								"uuid": "8439f4f1-7453-4b75-924c-5ec88fbbb756"
+								"uuid": "e538ac3c-7267-4877-8b55-1b3aa71a8f61"
 							}
 						],
 						"body": {
@@ -492,7 +492,7 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"type": "text",
-								"uuid": "ac6afc86-926e-4cd6-86e2-e1c68f3feb5a"
+								"uuid": "5a89a6c1-fdfb-4571-b3f9-eac9e8101fec"
 							}
 						],
 						"body": {
@@ -544,7 +544,7 @@
 								"key": "Content-Type",
 								"type": "text",
 								"value": "application/json",
-								"uuid": "4a823355-78e5-41da-9e02-29580d7fada2"
+								"uuid": "009fae25-aee0-4752-8596-3d9434d5d0ef"
 							}
 						],
 						"body": {
@@ -608,7 +608,7 @@
 								"key": "Content-Type",
 								"type": "text",
 								"value": "application/json",
-								"uuid": "25f4daa3-fd33-4749-b964-b982735027ba"
+								"uuid": "0b8b37a7-9bc6-4262-a25e-d1d29c8040ea"
 							}
 						],
 						"body": {
@@ -653,7 +653,7 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"type": "text",
-								"uuid": "78c5ed63-dd18-42f1-800b-ff4494263360"
+								"uuid": "894c7307-c15f-40e9-a5c3-cdafc1d172d4"
 							}
 						],
 						"url": {
@@ -837,6 +837,65 @@
 							"path": [
 								"kafka",
 								"close"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vote stress test",
+			"item": [
+				{
+					"name": "Get Session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"username01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/vote/session",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vote",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit Vote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"session\": \"3fa5d1ec-40ab-425f-9713-48499da3a3d5\",\r\n    \"username\": \"username01\",\r\n    \"vote\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/vote/submit",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vote",
+								"submit"
 							]
 						}
 					},

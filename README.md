@@ -15,3 +15,4 @@
 - Actuator
 - Scheduler
 - Kafka
+- JMeter stress test
