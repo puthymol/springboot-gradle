@@ -58,8 +58,7 @@
 							{
 								"key": "Content-Type",
 								"type": "text",
-								"value": "application/json",
-								"uuid": "f120fbd7-a94b-4b0d-a0b9-03a857f9666d"
+								"value": "application/json"
 							}
 						],
 						"url": {
@@ -362,8 +361,7 @@
 							{
 								"key": "Content-Type",
 								"value": "application/x-www-form-urlencoded",
-								"type": "text",
-								"uuid": "82b2bba8-9987-4138-95e4-4e6fb18de5c5"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -427,8 +425,7 @@
 							{
 								"key": "Content-Type",
 								"type": "text",
-								"value": "application/x-www-form-urlencoded",
-								"uuid": "e538ac3c-7267-4877-8b55-1b3aa71a8f61"
+								"value": "application/x-www-form-urlencoded"
 							}
 						],
 						"body": {
@@ -491,8 +488,7 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json",
-								"type": "text",
-								"uuid": "5a89a6c1-fdfb-4571-b3f9-eac9e8101fec"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -543,8 +539,7 @@
 							{
 								"key": "Content-Type",
 								"type": "text",
-								"value": "application/json",
-								"uuid": "009fae25-aee0-4752-8596-3d9434d5d0ef"
+								"value": "application/json"
 							}
 						],
 						"body": {
@@ -607,8 +602,7 @@
 							{
 								"key": "Content-Type",
 								"type": "text",
-								"value": "application/json",
-								"uuid": "0b8b37a7-9bc6-4262-a25e-d1d29c8040ea"
+								"value": "application/json"
 							}
 						],
 						"body": {
@@ -652,8 +646,7 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json",
-								"type": "text",
-								"uuid": "894c7307-c15f-40e9-a5c3-cdafc1d172d4"
+								"type": "text"
 							}
 						],
 						"url": {
@@ -789,54 +782,86 @@
 			"name": "kafka",
 			"item": [
 				{
-					"name": "Kafka Random",
+					"name": "Kafka send message technology",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Hi, this is message from technology",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{url}}/kafka/random",
+							"raw": "{{url}}/kafka/send/message/technology",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"kafka",
-								"random"
+								"send",
+								"message",
+								"technology"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Kafka Wakeup",
+					"name": "Kafka send message science",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Hi, this is message from science",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{url}}/kafka/wakeup",
+							"raw": "{{url}}/kafka/send/message/science",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"kafka",
-								"wakeup"
+								"send",
+								"message",
+								"science"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Kafka Close",
+					"name": "Kafka send student json",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"S001\",\n    \"firstname\": \"Puthy\",\n    \"lastname\": \"Mol\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{url}}/kafka/close",
+							"raw": "{{url}}/kafka/send/student",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"kafka",
-								"close"
+								"send",
+								"student"
 							]
 						}
 					},
@@ -862,12 +887,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/vote/session",
+							"raw": "{{url}}/jmeter/session",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"vote",
+								"jmeter",
 								"session"
 							]
 						}
@@ -881,7 +906,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"session\": \"3fa5d1ec-40ab-425f-9713-48499da3a3d5\",\r\n    \"username\": \"username01\",\r\n    \"vote\": 1\r\n}",
+							"raw": "{\r\n    \"session\": \"3fa5d1ec-40ab-425f-9713-48499da3a3d5\",\r\n    \"username\": \"username01\",\r\n    \"score\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -889,12 +914,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/vote/submit",
+							"raw": "{{url}}/jmeter/submit",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"vote",
+								"jmeter",
 								"submit"
 							]
 						}

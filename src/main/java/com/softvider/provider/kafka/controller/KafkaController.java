@@ -1,41 +1,38 @@
 package com.softvider.provider.kafka.controller;
 
-import com.softvider.provider.kafka.service.KafkaConsumerService;
-import com.softvider.provider.kafka.service.KafkaProducerService;
+import com.softvider.provider.kafka.payload.Student;
+import com.softvider.provider.kafka.producer.KafkaJsonProducer;
+import com.softvider.provider.kafka.producer.KafkaProducer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/kafka")
 public class KafkaController {
 
     @Inject
-    private KafkaProducerService kafkaProducerService;
+    private KafkaProducer kafkaProducer;
 
     @Inject
-    private KafkaConsumerService kafkaConsumerService;
+    private KafkaJsonProducer kafkaJsonProducer;
 
-    @RequestMapping(value = "random", method = RequestMethod.GET)
-    public ResponseEntity<List<Map<String, Object>>> random() {
-        List<Map<String, Object>> result = kafkaProducerService.random();
+    @RequestMapping(value = "/send/message/technology", method = RequestMethod.POST)
+    public ResponseEntity<Boolean> sendMessageTechnology(@RequestBody String message) {
+        boolean result = kafkaProducer.sendMessageTechnology(message);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "wakeup", method = RequestMethod.GET)
-    public ResponseEntity<String> wakeup() {
-        String result = kafkaConsumerService.wakeup();
+    @RequestMapping(value = "/send/message/science", method = RequestMethod.POST)
+    public ResponseEntity<Boolean> sendMessageScience(@RequestBody String message) {
+        boolean result = kafkaProducer.sendMessageScience(message);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "close", method = RequestMethod.GET)
-    public ResponseEntity<String> close() {
-        String result = kafkaConsumerService.close();
+    @RequestMapping(value = "/send/student", method = RequestMethod.POST)
+    public ResponseEntity<Boolean> sendStudent(@RequestBody Student student) {
+        boolean result = kafkaJsonProducer.sendStudent(student);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
